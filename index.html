@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bhokraha Driving School - Professional driving courses for cars and motorcycles with certified instructors in Sunsari, Nepal">
+    <meta name="keywords" content="driving school, driving lessons, car training, motorcycle training, Nepal, Sunsari, Bhokraha">
+    <title>Bhokraha Driving School - Professional Driving Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-green: #10b981;
+            --dark-blue: #1e3a8a;
+            --light-blue: #dbeafe;
+            --neutral-gray: #4b5563;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            color: #374151;
+            line-height: 1.6;
+        }
+
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            perspective: 1000px;
+            background: url('https://images.unsplash.com/photo-1549399812-5e82e1517600?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.85) 0%, rgba(30, 58, 138, 0.9) 100%);
+        }
+
+        .hero-content {
+            transform-style: preserve-3d;
+            transition: transform 0.1s;
+        }
+
+        .floating-cards {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .card-1 { width: 120px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .card-2 { width: 80px; height: 120px; top: 60%; right: 15%; animation-delay: 2s; }
+        .card-3 { width: 100px; height: 100px; bottom: 20%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9) 0%, rgba(59, 130, 246, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateZ(20px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-3d {
+            transform: translateZ(0);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .btn-3d:hover {
+            transform: translateY(-2px) translateZ(10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-3d:active {
+            transform: translateY(0) translateZ(0);
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: translateZ(10px);
+        }
+
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid var(--accent-green);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: var(--accent-green); }
+        }
+        
+        /* Payment Section Styles */
+        .payment-card {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-blue);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        
+        .payment-option {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .payment-option:hover {
+            background-color: #f1f5f9;
+            transform: scale(1.02);
+        }
+        
+        .payment-option.selected {
+            border-color: var(--primary-blue);
+            background-color: #dbeafe;
+        }
+        
+        .security-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-green));
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.65rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.375rem;
+            background-color: var(--accent-green);
+            color: white;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .swiper {
+            width: 100%;
+            padding: 30px 0 50px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--primary-blue) !important;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary-blue) !important;
+        }
+
+        .trainer-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trainer-img-container {
+            height: 256px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-padding {
+                padding: 3rem 0;
+            }
+
+            .trainer-img-container {
+                height: 200px;
+            }
+            .trainer-img-container {
+    height: 300px; /* Increased height to show more of the face */
+    overflow: hidden;
+    position: relative;
+}
+.najam-photo {
+    object-position: center 30%; /* Adjust this percentage to focus on the face */
+}
+.trainer-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top; /* Focus on the top part of the image where the face is */
+}
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 nav-glass">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-white text-2xl font-bold gradient-text">Bhokraha Driving School</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#about" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#services" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="#training" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Training</a>
+                        <a href="#payment" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Payment</a>
+                        <a href="#contact" class="text-white hover:text-blue-200 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-white mobile-menu-button">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu hidden md:hidden fixed z-40 inset-0 bg-blue-900 bg-opacity-95">
+        <div class="flex flex-col items-center justify-center h-full">
+            <button class="absolute top-4 right-4 text-white">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            <a href="#home" class="text-white text-xl font-medium py-3 transition-colors">Home</a>
+            <a href="#about" class="text-white text-xl font-medium py-3 transition-colors">About</a>
+            <a href="#services" class="text-white text-xl font-medium py-3 transition-colors">Services</a>
+            <a href="#training" class="text-white text-xl font-medium py-3 transition-colors">Training</a>
+            <a href="#payment" class="text-white text-xl font-medium py-3 transition-colors">Payment</a>
+            <a href="#contact" class="text-white text-xl font-medium py-3 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="floating-cards">
+            <div class="floating-card card-1"></div>
+            <div class="floating-card card-2"></div>
+            <div class="floating-card card-3"></div>
+        </div>
+        <div class="relative z-10 flex items-center justify-center h-full">
+            <div class="text-center text-white hero-content px-4">
+                <span class="badge mb-4">Nepal's Premier Driving School</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 typewriter">Master The Road With Confidence</h1>
+                <p class="text-lg md:text-xl mb-8 opacity-90 max-w-2xl mx-auto">Professional driving education with certified instructors, modern vehicles, and a proven success record</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full btn-3d transition-all duration-300">
+                        <i class="fas fa-car mr-2"></i> Start Learning
+                    </button>
+                    <button class="border-2 border-white text-white hover:bg-white hover:text-blue-900 font-semibold py-3 px-8 rounded-full btn-3d transition-all duration-300">
+                        <i class="fas fa-calendar-check mr-2"></i> Free Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator">
+            <svg class="w-6 h-6 text-white animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="stats-card rounded-xl p-6 text-center text-white transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl font-bold mb-2">15+</div>
+                    <div class="text-sm opacity-90">Years Experience</div>
+                </div>
+                <div class="stats-card rounded-xl p-6 text-center text-white transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl font-bold mb-2">5000+</div>
+                    <div class="text-sm opacity-90">Students Trained</div>
+                </div>
+                <div class="stats-card rounded-xl p-6 text-center text-white transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl font-bold mb-2">98%</div>
+                    <div class="text-sm opacity-90">Success Rate</div>
+                </div>
+                <div class="stats-card rounded-xl p-6 text-center text-white transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl font-bold mb-2">50+</div>
+                    <div class="text-sm opacity-90">Certified Instructors</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center section-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About Our Driving School</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Established in 2008, Bhokraha Driving School has been providing quality driving education with a focus on safety and skill development</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-12">
+                <div>
+                    <img src="https://static.vecteezy.com/system/resources/previews/015/618/042/non_2x/driving-school-with-education-process-of-car-training-and-learning-to-drive-to-get-drivers-license-in-flat-cartoon-hand-drawn-templates-illustration-vector.jpg" alt="Driving school classroom with students learning" class="rounded-xl shadow-lg w-full h-auto">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Why Choose Bhokraha Driving School?</h3>
+                    <p class="text-gray-600 mb-6">We are committed to providing the highest standard of driver education with a curriculum designed to create safe, confident, and skilled drivers.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Government Certified Programs</h4>
+                                <p class="text-gray-600 text-sm">Our courses meet all government requirements for driver licensing</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Modern Training Vehicles</h4>
+                                <p class="text-gray-600 text-sm">Well-maintained cars and motorcycles with dual controls for safety</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-full mr-4">
+                                <i class="fas fa-check-circle text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Flexible Scheduling</h4>
+                                <p class="text-gray-600 text-sm">Lessons available weekdays, evenings, and weekends to fit your schedule</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="mt-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                        Learn More About Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center section-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Professional Services</h2>
+                <p class="text-lg text-gray-600">Comprehensive training programs for all skill levels</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                <!-- Car Training -->
+                <div class="service-card rounded-xl overflow-hidden bg-white">
+                    <div class="relative">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdYEvO24skC5Iw9mvMQCDPiDj-4yZjjX8zsg&s" alt="Modern driving school car with professional instructor" class="w-full h-65 object-cover">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full">Most Popular</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Car Driving Programs</h3>
+                        <p class="text-gray-600 mb-4">Comprehensive car driving courses for beginners to advanced drivers with both manual and automatic transmission options</p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Beginner to Advanced Levels</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Defensive Driving Techniques</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Highway Driving Skills</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Parallel Parking Mastery</li>
+                        </ul>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                            Explore Car Courses
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Motorcycle Training -->
+                <div class="service-card rounded-xl overflow-hidden bg-white">
+                    <img src="data:image/jpeg;base64,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" alt="Motorcycle safety training with protective gear" class="w-full h-65 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Motorcycle Training</h3>
+                        <p class="text-gray-600 mb-4">Specialized motorcycle courses for safe and confident riding with proper safety equipment and techniques</p>
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Basic Rider Courses</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Advanced Riding Skills</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Safety & Protection Training</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Road Hazard Awareness</li>
+                        </ul>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                            Explore Motorcycle Courses
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Programs -->
+    <section id="training" class="section-padding bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center section-title">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Structured Training Programs</h2>
+                <p class="text-lg text-gray-300">Comprehensive learning paths for every driver</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="bg-gray-800 rounded-xl p-8 transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-blue-400 text-4xl mb-4"><i class="fas fa-car"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Beginner Course</h3>
+                    <p class="text-gray-300 mb-6">Perfect for first-time drivers with no prior experience</p>
+                    <ul class="text-sm text-gray-400 space-y-3 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 20 hours of practical training</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> 10 hours of theory classes</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Road test preparation</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Insurance certificate</li>
+                    </ul>
+                    <div class="text-2xl font-bold text-blue-400 mb-4">Rs. 32,000</div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+
+                <div class="bg-blue-600 rounded-xl p-8 transform hover:scale-105 transition-transform duration-300 relative">
+                    <div class="absolute top-0 right-0 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Most Popular</div>
+                    <div class="text-white text-4xl mb-4"><i class="fas fa-motorcycle"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Motorcycle Course</h3>
+                    <p class="text-blue-100 mb-6">Comprehensive motorcycle training for all skill levels</p>
+                    <ul class="text-sm text-blue-200 space-y-3 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-white mr-2"></i> 15 hours of riding practice</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-white mr-2"></i> Safety gear provided</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-white mr-2"></i> Hazard avoidance training</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-white mr-2"></i> License test preparation</li>
+                    </ul>
+                    <div class="text-2xl font-bold text-white mb-4">Rs. 20,000</div>
+                    <button class="w-full bg-white text-blue-600 hover:bg-blue-50 font-semibold py-3 rounded-lg transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+
+                <div class="bg-gray-800 rounded-xl p-8 transform hover:scale-105 transition-transform duration-300">
+                    <div class="text-blue-400 text-4xl mb-4"><i class="fas fa-star"></i></div>
+                    <h3 class="text-2xl font-bold mb-4">Advanced Course</h3>
+                    <p class="text-gray-300 mb-6">For experienced drivers looking to enhance their skills</p>
+                    <ul class="text-sm text-gray-400 space-y-3 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Defensive driving techniques</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Emergency maneuver training</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Night driving practice</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-green-400 mr-2"></i> Advanced road awareness</li>
+                    </ul>
+                    <div class="text-2xl font-bold text-blue-400 mb-4">Rs. 16,000</div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                        Enroll Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="section-padding bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center section-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Secure Payment Options</h2>
+                <p class="text-lg text-gray-600">Choose your preferred payment method</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+                <div class="p-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Course Enrollment & Payment</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                        <div class="payment-option border-2 border-gray-200 rounded-lg p-4 text-center cursor-pointer" onclick="selectPayment(this, 'esewa')">
+                            <div class="text-4xl mb-2 text-blue-600"><i class="fas fa-mobile-alt"></i></div>
+                            <p class="font-medium">eSewa</p>
+                        </div>
+                        
+                        <div class="payment-option border-2 border-gray-200 rounded-lg p-4 text-center cursor-pointer" onclick="selectPayment(this, 'khalti')">
+                            <div class="text-4xl mb-2 text-purple-600"><i class="fas fa-wallet"></i></div>
+                            <p class="font-medium">Khalti</p>
+                        </div>
+                        
+                        <div class="payment-option border-2 border-gray-200 rounded-lg p-4 text-center cursor-pointer" onclick="selectPayment(this, 'bank')">
+                            <div class="text-4xl mb-2 text-green-600"><i class="fas fa-university"></i></div>
+                            <p class="font-medium">Bank Transfer</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg mb-6">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Enrollment Details</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Selected Course</label>
+                                <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                    <option>Beginner Car Course - Rs. 32,000</option>
+                                    <option>Motorcycle Course - Rs. 20,000</option>
+                                    <option>Advanced Course - Rs. 16,000</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                                <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your full name">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your email">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your phone number">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
+                        <div class="flex items-center">
+                            <div class="security-badge w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-lock text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-gray-800">Secure Payment</p>
+                                <p class="text-sm text-gray-600">Your information is protected with encryption</p>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center md:text-right">
+                            <p class="text-sm text-gray-600">Total Amount</p>
+                            <p class="text-2xl font-bold text-gray-900">Rs. 32,000</p>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-lg font-semibold text-lg transition-colors">
+                        Proceed to Payment
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="payment-card bg-white rounded-xl p-6 shadow-md text-center">
+                    <div class="text-blue-500 text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Secure Payments</h3>
+                    <p class="text-gray-600">All transactions are encrypted and secure</p>
+                </div>
+                
+                <div class="payment-card bg-white rounded-xl p-6 shadow-md text-center">
+                    <div class="text-green-500 text-3xl mb-4"><i class="fas fa-clock"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Instant Confirmation</h3>
+                    <p class="text-gray-600">Receive immediate payment confirmation</p>
+                </div>
+                
+                <div class="payment-card bg-white rounded-xl p-6 shadow-md text-center">
+                    <div class="text-purple-500 text-3xl mb-4"><i class="fas fa-headset"></i></div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Support</h3>
+                    <p class="text-gray-600">Help available for payment issues</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trainers Section -->
+    <section id="trainers" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center section-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Certified Instructors</h2>
+                <p class="text-lg text-gray-600">Learn from the best professionals in the industry</p>
+            </div>
+
+            <div class="swiper trainersSwiper mt-12">
+                <div class="swiper-wrapper">
+                    <!-- Owner - Najam Ansari -->
+                    <div class="swiper-slide">
+                        <div class="trainer-card bg-white rounded-xl overflow-hidden shadow-lg mx-auto max-w-md border border-gray-100">
+                            <div class="trainer-img-container">
+                                <img src="https://scontent.fpkr3-2.fna.fbcdn.net/v/t39.30808-6/501356959_2685858651764478_6010516022234113401_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_ohc=JRm336fLLz8Q7kNvwFfeHJb&_nc_oc=AdkCQ6WPN3f6DVi22rfeDGgYVs44STELKa5crKunTGnmtBmrwLh0Zw945rmjE2jwgKG9J7-dtXfwMitEop_f_aFY&_nc_zt=23&_nc_ht=scontent.fpkr3-2.fna&_nc_gid=E1eIPLKa8B_OS7Tk0sVluA&oh=00_AfXYEwafch3iU9MNWJjq1jfNVfELe3ZD66gEWtVsI_rEJw&oe=68BC5342" 
+                                     alt="Najam Ansari - Owner & Senior Driving Instructor" 
+                                     class="trainer-img"
+                                     onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=150'">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                    <h3 class="text-white text-xl font-bold">Najam Ansari</h3>
+                                    <p class="text-blue-200 text-sm">Owner & Senior Driving Instructor</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <div class="flex">
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                    </div>
+                                    <span class="text-gray-600 text-sm ml-2">4.9/5 (128 reviews)</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">Founder and lead instructor with 10+ years experience in car and motorcycle training. Specialized in defensive driving techniques and beginner instruction.</p>
+                                <div class="flex items-center text-sm text-gray-500 mb-4">
+                                    <span class="mr-4">✅ 1500+ Students</span>
+                                    <span>🎯 98% Success Rate</span>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-sm text-gray-800 font-semibold mb-2">Specializations:</p>
+                                    <p class="text-sm text-gray-600">Car Driving (Manual & Automatic) | Motorcycle Training</p>
+                                    <p class="text-sm text-gray-600">Defensive Driving | Road Test Preparation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trainer 2 -->
+                    <div class="swiper-slide">
+                        <div class="trainer-card bg-white rounded-xl overflow-hidden shadow-lg mx-auto max-w-md border border-gray-100">
+                            <div class="trainer-img-container">
+                                <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                                     alt="Rajesh Kumar - Motorcycle Specialist" 
+                                     class="trainer-img">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                    <h3 class="text-white text-xl font-bold">Rajesh Kumar</h3>
+                                    <p class="text-green-200 text-sm">Motorcycle Specialist</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <div class="flex">
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                    </div>
+                                    <span class="text-gray-600 text-sm ml-2">4.8/5 (96 reviews)</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">8+ years specializing in motorcycle training. Certified by the Nepal Driving Training Association.</p>
+                                <div class="flex items-center text-sm text-gray-500 mb-4">
+                                    <span class="mr-4">✅ 850+ Students</span>
+                                    <span>🎯 97% Success Rate</span>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-sm text-gray-800 font-semibold mb-2">Specializations:</p>
+                                    <p class="text-sm text-gray-600">Motorcycle Safety | Advanced Riding Techniques</p>
+                                    <p class="text-sm text-gray-600">Off-road Training | License Test Preparation</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Trainer 3 -->
+                    <div class="swiper-slide">
+                        <div class="trainer-card bg-white rounded-xl overflow-hidden shadow-lg mx-auto max-w-md border border-gray-100">
+                            <div class="trainer-img-container">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" 
+                                     alt="Sunita Sharma - Theory Instructor" 
+                                     class="trainer-img">
+                                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                                    <h3 class="text-white text-xl font-bold">Sunita Sharma</h3>
+                                    <p class="text-purple-200 text-sm">Theory Instructor</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <div class="flex">
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                        <span class="text-yellow-400 text-sm">⭐</span>
+                                    </div>
+                                    <span class="text-gray-600 text-sm ml-2">4.9/5 (142 reviews)</span>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-4">12+ years teaching traffic rules and regulations. Makes complex concepts easy to understand.</p>
+                                <div class="flex items-center text-sm text-gray-500 mb-4">
+                                    <span class="mr-4">✅ 2000+ Students</span>
+                                    <span>🎯 99% Success Rate</span>
+                                </div>
+                                <div class="mt-4">
+                                    <p class="text-sm text-gray-800 font-semibold mb-2">Specializations:</p>
+                                    <p class="text-sm text-gray-600">Traffic Rules | Road Safety Regulations</p>
+                                    <p class="text-sm text-gray-600">Test Preparation | Defensive Driving Theory</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center section-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Student Success Stories</h2>
+                <p class="text-lg text-gray-600">Hear from our satisfied students</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <div class="testimonial-card rounded-xl p-6 bg-white shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Aaryan Karn" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Aaryan Karn</h4>
+                            <p class="text-sm text-gray-600">Car Student · May 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"The instructors were incredibly patient and professional. I passed my test on the first try! The defensive driving techniques I learned have been invaluable."</p>
+                    <div class="flex mt-4">
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card rounded-xl p-6 bg-white shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Sita Pandey" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Sita Pandey</h4>
+                            <p class="text-sm text-gray-600">Motorcycle Student · Feb 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"As a woman learning to ride a motorcycle, I was nervous at first. But the instructors made me feel comfortable and confident. Now I ride safely every day!"</p>
+                    <div class="flex mt-4">
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                    </div>
+                </div>
+
+                <div class="testimonial-card rounded-xl p-6 bg-white shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Ramesh Adhikari" class="w-12 h-12 rounded-full object-cover">
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Ramesh Adhikari</h4>
+                            <p class="text-sm text-gray-600">Advanced Course · Dec 2022</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"The advanced driving techniques I learned have made me a much safer and more confident driver. I highly recommend their advanced course for experienced drivers."</p>
+                    <div class="flex mt-4">
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                        <span class="text-yellow-400">⭐</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center section-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600">Find answers to common questions about our driving school</p>
+            </div>
+
+            <div class="mt-12 space-y-4">
+                <div class="faq-item border-b border-gray-200 pb-4">
+                    <button class="faq-question w-full text-left font-semibold text-lg py-3 flex justify-between items-center">
+                        What documents do I need to enroll?
+                        <i class="fas fa-chevron-down text-blue-600"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 pt-2">You'll need a valid learner's permit, two passport-sized photographs, a copy of your citizenship certificate, and a medical fitness certificate.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item border-b border-gray-200 pb-4">
+                    <button class="faq-question w-full text-left font-semibold text-lg py-3 flex justify-between items-center">
+                        How long does it take to complete a course?
+                        <i class="fas fa-chevron-down text-blue-600"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 pt-2">Our beginner car course typically takes 4-6 weeks to complete, depending on your schedule. Motorcycle courses are usually completed in 3-4 weeks.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item border-b border-gray-200 pb-4">
+                    <button class="faq-question w-full text-left font-semibold text-lg py-3 flex justify-between items-center">
+                        Do you provide vehicles for the driving test?
+                        <i class="fas fa-chevron-down text-blue-600"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 pt-2">Yes, we provide well-maintained vehicles for both practice and the official driving test. Our instructors will accompany you to the test center.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item border-b border-gray-200 pb-4">
+                    <button class="faq-question w-full text-left font-semibold text-lg py-3 flex justify-between items-center">
+                        What if I need extra practice hours?
+                        <i class="fas fa-chevron-down text-blue-600"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p class="text-gray-600 pt-2">Additional practice hours can be arranged at a nominal fee. Many students opt for a few extra hours to build confidence before their test.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-to-r from-blue-600 to-purple-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Your Driving Journey?</h2>
+            <p class="text-lg text-blue-100 mb-8 max-w-3xl mx-auto">Join thousands of successful drivers who started with Bhokraha Driving School. Get professional training from certified instructors.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg text-lg font-semibold transition-colors">
+                    <i class="fas fa-calendar-check mr-2"></i> Book Your First Lesson
+                </button>
+                <button class="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg text-lg font-semibold transition-colors">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Us Now
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center section-title">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                <p class="text-lg text-gray-600">Get in touch with us for more information</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Visit Our Driving School</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Address</h4>
+                                <p class="text-gray-600">Bhokraha, Sunsari, Nepal</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Phone</h4>
+                                <p class="text-gray-600">(977) 9816362501</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Email</h4>
+                                <p class="text-gray-600">info@bhokrahadriving.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Operating Hours</h4>
+                                <p class="text-gray-600">Sunday-Friday: 7AM - 7PM</p>
+                                <p class="text-gray-600">Saturday: 8AM - 5PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 rounded-xl overflow-hidden shadow-lg">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113973.373709998!2d87.25221699999999!3d26.554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6ac2fe80a0e5%3A0x1d97bed7e2e87b5a!2sBhokraha%2C%20Nepal!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your name">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your email">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your phone number">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold gradient-text mb-4">Bhokraha Driving School</h3>
+                    <p class="text-gray-400 mb-4">Professional driving school offering comprehensive car and motorcycle training programs in Sunsari, Nepal.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#training" class="text-gray-400 hover:text-white transition-colors">Training</a></li>
+                        <li><a href="#payment" class="text-gray-400 hover:text-white transition-colors">Payment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <p class="text-gray-400 mb-2">📞 (+977) 9816362501</p>
+                    <p class="text-gray-400 mb-2">✉️ info@bhokrahadriving.com</p>
+                    <p class="text-gray-400">📍 Bhokraha, Sunsari, Nepal</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for driving tips and special offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Bhokraha Driving School. All rights reserved by Gautam Yadav.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Swiper for trainers section
+        var trainersSwiper = new Swiper(".trainersSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+        });
+
+        // Mobile menu functionality
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuClose = document.querySelector('.mobile-menu button');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+
+        // FAQ accordion functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const content = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Toggle current item
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                }
+                
+                // Close other items
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        const otherContent = otherQuestion.nextElementSibling;
+                        const otherIcon = otherQuestion.querySelector('i');
+                        otherContent.style.maxHeight = null;
+                        otherIcon.classList.remove('fa-chevron-up');
+                        otherIcon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+
+        // Parallax effect for hero section
+        document.addEventListener('mousemove', (e) => {
+            const heroContent = document.querySelector('.hero-content');
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+            heroContent.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Payment selection function
+        function selectPayment(element, paymentMethod) {
+            // Remove selected class from all payment options
+            document.querySelectorAll('.payment-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // You can add additional logic here based on the selected payment method
+            console.log('Selected payment method:', paymentMethod);
+        }
+
+        // Typewriter effect
+        function restartTypewriter() {
+            const typewriter = document.querySelector('.typewriter');
+            typewriter.style.animation = 'none';
+            setTimeout(() => {
+                typewriter.style.animation = '';
+            }, 10);
+        }
+
+        setInterval(restartTypewriter, 8000);
+    </script>
+</body>
+</html>
